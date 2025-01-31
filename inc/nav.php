@@ -43,7 +43,7 @@
     </ul>
     <?php }else{?>
         <!-- Admin Navigation Bar -->
-        <ul>
+        <ul id="navList">
         <li>
             <a href="#">
                 <i class="fa fa-tachometer" aria-hidden="true"></i>

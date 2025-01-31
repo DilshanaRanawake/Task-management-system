@@ -120,6 +120,15 @@
     cursor: pointer;
     letter-spacing: 1px;
 }
+.side-bar .active a{
+    color: #760751 !important
+}
+.side-bar .active a i{
+    color: #760751 !important
+}
+.side-bar ul .active:hover{
+    background: transparent;
+}
 .side-bar ul li a i{
     display: inline-block;
     padding-right: 10px;
