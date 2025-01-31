@@ -169,3 +169,14 @@
     max-width: 420px;
     width: 90%;
 }
+
+.section-1{
+    padding: 30px;
+}
+.section-1 .title{
+    margin-bottom: 10px;
+}
+.section-1 .title a{
+    display: inline-block;
+    padding-left: 10px;
+}
