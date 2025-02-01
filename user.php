@@ -20,7 +20,7 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
         <?php include "inc/nav.php" ?>
         <section class="section-1">
             <h4 class="title">Manage Users <a href="add-user.php">Add User</a></h4>
-            <table>
+            <table class="main-table">
                 <tr>
                     <th>#</th>
                     <th>Full Name</th>
@@ -34,8 +34,8 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
                     <td>dil</td>
                     <td>Employee</td>
                     <td>
-                        <a href="">Edit</a>
-                        <a href="">Delete</a>
+                        <a href="" class="edit-btn">Edit</a>
+                        <a href="" class="delete-btn">Delete</a>
                     </td>
                 </tr>
             </table>
