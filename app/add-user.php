@@ -30,8 +30,14 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
             exit();
         }else{
             include "Mode1/User.php";
-            $data = array($full_name, $user_name, $password);
+            $password = password_hash($password, PASSWORD_DEFAULT);
+
+            $data = array($full_name, $user_name, $password, "employee");
             insert_user($conn, $data);
+
+            $em = "User created successfully";
+            header("Location: ../add-user.php?success=$em");
+            exit();
         }
     }else{
         $em = "unknown error occurred";

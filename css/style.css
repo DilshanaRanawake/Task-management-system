@@ -296,3 +296,19 @@
 .input-1:focus{
 	border-color: #555;
 }
+
+.danger{
+    background-color: #e0c0c0;
+    color: #c90000;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(222, 177, 177, 0.8);
+    margin-top: 10px;
+}
+
+.success{
+    background-color: #9fc0a4;
+    color: #009814;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(222, 177, 177, 0.8);
+    margin-top: 10px;
+}
