@@ -232,9 +232,9 @@
     display: inline-block;
     padding-left: 10px;
     border: none;
-    background: #be9eb3;
+    background: #262931;
     padding: 10px 15px;
-    color: #ba0000;
+    color: #c90000;
     font-size: 20px;
     font-weight: bold;
     border-radius: 5px;
@@ -245,7 +245,9 @@
 }
 
 .delete-btn:hover {
-    background: #3d1730;
+    background: #98166d;
+    color: white;
+    transition: color 0.2s;
 }
 
 .edit-btn{
@@ -253,9 +255,9 @@
     display: inline-block;
     padding-left: 10px;
     border: none;
-    background: #be9eb3;
+    background: #262931;
     padding: 10px 15px;
-    color: #008b13;
+    color: #00b118;
     font-size: 20px;
     font-weight: bold;
     border-radius: 5px;
@@ -266,12 +268,14 @@
 }
 
 .edit-btn:hover {
-    background: #3d1730;
+    background: #98166d;
+    color: white;
+    transition: color 0.2s;
 }
 
 .form-1{
     width: 90%;
-    max-width: 700px;
+    max-width: 500px;
 }
 
 .input-holder label{

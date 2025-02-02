@@ -11,3 +11,10 @@ function get_all_users($conn){
     return $users;
 }
 
+function insert_user($conn, $data){
+    $sql = "INSERT INTO users (full_name, username, password) VALUES(?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($data);
+
+}
+
