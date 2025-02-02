@@ -139,11 +139,11 @@
     width: 100%;
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
     flex-direction: column;
     color: black;
-    padding: 50px;
+    padding: 30px;
 }
 
 .section-1::before {
@@ -172,7 +172,7 @@
 
 .section-1 h1,
 .section-1 p {
-    position: relative;
+    /* position: relative; */
     z-index: 1;
 }
 
@@ -190,9 +190,7 @@
     width: 90%;
 }
 
-.section-1 {
-    padding: 30px;
-}
+
 
 .section-1 .title {
     margin-bottom: 10px;
@@ -269,4 +267,28 @@
 
 .edit-btn:hover {
     background: #3d1730;
+}
+
+.form-1{
+    width: 90%;
+    max-width: 700px;
+}
+
+.input-holder label{
+    display: block;
+    padding: 10px;
+}
+
+.input-1 {
+	border: 2px solid #ccc;
+	width: 100%;
+	padding: 10px;
+	font-size: 15px;
+	outline: none;
+	border-radius: 5px;
+	display: block;
+}
+
+.input-1:focus{
+	border-color: #555;
 }
