@@ -28,12 +28,12 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
             <div class="danger" role="alert">
                 <?php echo stripslashes($_GET['error']);?>
             </div>
-        <?php } ?>
-            <?php if(isset($_GET['success'])){?>
-                <div class="success" role="alert">
-                    <?php echo stripslashes($_GET['success']);?>
-                </div>
-            <?php } 
+            <?php } ?>
+                <?php if(isset($_GET['success'])){?>
+                    <div class="success" role="alert">
+                        <?php echo stripslashes($_GET['success']);?>
+                    </div>
+                <?php } 
             ?>
                 <div class = "input-holder">
                     <label for="">Full Name</label>

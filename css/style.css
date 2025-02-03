@@ -280,7 +280,12 @@
 
 .input-holder label{
     display: block;
-    padding: 10px;
+}
+
+.input-holder {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Controls spacing between label and input */
 }
 
 .input-1 {
