@@ -16,3 +16,22 @@ function get_all_tasks($conn){
     }else $tasks = 0;
     return $tasks;
 }
+
+
+function delete_task($conn, $data){
+    $sql = "DELETE FROM tasks WHERE id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($data);
+
+}
+
+function get_task_by_id($conn, $id){
+    $sql = "SELECT * FROM tasks WHERE id =? ";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$id]);
+
+    if($stmt->rowCount()>0){
+        $task = $stmt->fetch();
+    }else $task = 0;
+    return $task;
+}
