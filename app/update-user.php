@@ -42,7 +42,7 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
             exit();
         }
     }else{
-        $em = "unknown error occurred";
+        $em = "Unknown error occurred";
         header("Location: ../edit-user.php?error=$em");
         exit();
     }

@@ -24,7 +24,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
             <h4 class="title">Create Task</h4>
             <form class = "form-1"
                 method="POST"
-                action="app/add-user.php">
+                action="app/add-task.php">
                 <?php if(isset($_GET['error'])){?>
                 <div class="danger" role="alert">
                     <?php echo stripslashes($_GET['error']);?>
@@ -38,15 +38,22 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
                 ?>
                 <div class = "input-holder">
                     <label for="">Title</label>
-                    <input type="text" name="title" class="input-1" placeholder="Title"><br><br>
+                    <input type="text" name="title" class="input-1" placeholder="Title"><br>
                 </div>
                 <div class = "input-holder">
                     <label for="">Description</label>
-                    <input type="text" name="description" class="input-1" placeholder="Description"><br><br>
+                    <textarea type="text" name="description" class="input-1" placeholder="Description"></textarea><br>
                 </div>
                 <div class = "input-holder">
-                    <label for="">Assigned to</label>
-                    <input type="text" name="assigned_to" class="input-1" placeholder="Assigned to"><br><br>
+                    <label >Assigned to</label>
+                    <select name="assigned_to" class="input-1">
+                        <option value = "0">Select employee</option>
+                        <?php if ($users !=0){
+                            foreach ($users as $user){  
+                        ?>
+                        <option value = "<?= $user['id']?>"><?= $user['full_name']?></option>
+                        <?php }}?>
+                    </select><br>
                 </div>
 
                 <button class="edit-btn">Create Task</button>

@@ -63,7 +63,7 @@ session_start();
             }
         }
     }else{
-        $em = "unknown error occurred";
+        $em = "Unknown error occurred";
         header("Location: ../login.php?error=$em");
         exit();
     }

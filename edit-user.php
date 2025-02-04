@@ -51,15 +51,15 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
             ?>
                 <div class = "input-holder">
                     <label for="">Full Name</label>
-                    <input type="text" name="full_name" value = "<?=$user['full_name']?>" class="input-1" placeholder="Full Name"><br><br>
+                    <input type="text" name="full_name" value = "<?=$user['full_name']?>" class="input-1" placeholder="Full Name"><br>
                 </div>
                 <div class = "input-holder">
                     <label for="">Username</label>
-                    <input type="text" name="user_name" value = "<?=$user['username']?>" class="input-1" placeholder="Username"><br><br>
+                    <input type="text" name="user_name" value = "<?=$user['username']?>" class="input-1" placeholder="Username"><br>
                 </div>
                 <div class = "input-holder">
                     <label for="">Password</label>
-                    <input type="text" name="password" value = "********" class="input-1" placeholder="Password"><br><br>
+                    <input type="text" name="password" value = "********" class="input-1" placeholder="Password"><br>
                 </div>
                 <input type="text" name = "id" value = "<?=$user['id']?>" hidden>
                 <button class="edit-btn">Update</button>
