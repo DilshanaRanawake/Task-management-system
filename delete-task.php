@@ -9,16 +9,16 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
         exit();
     }
     $id = $_GET['id'];
-    $user = get_task_by_id($conn, $id);
+    $task = get_task_by_id($conn, $id);
     
 
-    if($user==0){
+    if($task==0){
         header("Location: tasks.php");
         exit();
     }
 
-    $data = array($id, "Employee");
-    delete_user($conn, $data);
+    $data = array($id);
+    delete_task($conn, $data);
     $sm = "Deleted successfully";
     header("Location: tasks.php?success=$sm");
     exit();
