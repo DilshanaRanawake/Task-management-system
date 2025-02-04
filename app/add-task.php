@@ -24,15 +24,19 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
             $em = "Description is required";
             header("Location: ../create_task.php?error=$em");
             exit();
+        }else if ($assigned_to==0) {
+            $em = "Select user required";
+            header("Location: ../create_task.php?error=$em");
+            exit();
         }else{
             include "Mode1/Task.php";
             
             $data = array($title, $description, $assigned_to);
             insert_task($conn, $data);
 
-            // $em = "User created successfully";
-            // header("Location: ../create_task.php?success=$em");
-            // exit();
+            $em = "Task created successfully";
+            header("Location: ../create_task.php?success=$em");
+            exit();
         }
     }else{
         $em = "Unknown error occurred";
