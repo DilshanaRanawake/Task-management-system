@@ -1,26 +1,25 @@
 <?php
 session_start();
-if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
+if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
     include "DB_connection.php";
     include "app/Mode1/Task.php";
     include "app/Mode1/User.php";
 
-    if(!isset($_GET['id'])){
+    if (!isset($_GET['id'])) {
         header("Location: tasks.php");
         exit();
     }
+
     $id = $_GET['id'];
     $task = get_task_by_id($conn, $id);
-    //print_r($username);
 
-    if($task==0){
+    if ($task == 0) {
         header("Location: tasks.php");
         exit();
     }
 
     $users = get_all_users($conn);
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,63 +32,62 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
 </head>
 <body>
     <input type="checkbox" id="checkbox">
-    <?php include "inc/header.php" ?>
+    <?php include "inc/header.php"; ?>
     <div class="body">
-        <?php include "inc/nav.php" ?>
+        <?php include "inc/nav.php"; ?>
         <section class="section-1">
             <h4 class="title">Edit Tasks <a href="tasks.php">Tasks</a></h4>
-            <form class = "form-1"
-                method="POST"
-                action="app/update-task.php">
-                <?php if(isset($_GET['error'])){?>
-            <div class="danger" role="alert">
-                <?php echo stripslashes($_GET['error']);?>
-            </div>
-        <?php } ?>
-            <?php if(isset($_GET['success'])){?>
-                <div class="success" role="alert">
-                    <?php echo stripslashes($_GET['success']);?>
-                </div>
-            <?php } 
-            ?>
-                <div class = "input-holder">
-                    <label for="">Title</label>
-                    <input type="text" name="title" value = "<?=$task['title']?>" class="input-1" placeholder="Full Name"><br>
-                </div>
-                <div class = "input-holder">
-                    <label for="">Description</label>
-                    <textarea name="description" rows = "5" class="input-1" placeholder="Description"><?=$task['description']?></textarea><br>
-                </div>
-                <div class = "input-holder">
-                    <label >Assigned to</label>
-                    <select name="assigned_to" class="input-1">
-                        <option value = "0">Select employee</option>
-                        <?php if ($users !=0){
-                            foreach ($users as $user){  
-                                if ($task['assigned_to'] == $user['id']){ ?>
-                                    <option selected value = "<?= $user['id']?>"><?= $user['full_name']?></option>
-                        <?php}else?>
-                        <option value = "<?= $user['id']?>"><?= $user['full_name']?></option>
+            <form class="form-1" method="POST" action="app/update-task.php">
+                <?php if (isset($_GET['error'])) { ?>
+                    <div class="danger" role="alert">
+                        <?= htmlspecialchars($_GET['error']); ?>
+                    </div>
+                <?php } ?>
 
-                        <?php }}}?>
+                <?php if (isset($_GET['success'])) { ?>
+                    <div class="success" role="alert">
+                        <?= htmlspecialchars($_GET['success']); ?>
+                    </div>
+                <?php } ?>
+
+                <div class="input-holder">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" value="<?= htmlspecialchars($task['title']) ?>" class="input-1" placeholder="Title"><br>
+                </div>
+                <div class="input-holder">
+                    <label for="description">Description</label>
+                    <textarea name="description" rows="5" class="input-1" placeholder="Description"><?= htmlspecialchars($task['description']) ?></textarea><br>
+                </div>
+                <div class="input-holder">
+                    <label for="assigned_to">Assigned to</label>
+                    <select name="assigned_to" class="input-1">
+                        <option value="0">Select employee</option>
+                        <?php if ($users != 0) {
+                            foreach ($users as $user) { ?>
+                                <option value="<?= htmlspecialchars($user['id']) ?>" <?= ($task['assigned_to'] == $user['id']) ? 'selected' : ''; ?>>
+                                    <?= htmlspecialchars($user['full_name']) ?>
+                                </option>
+                        <?php } } ?>
                     </select><br>
                 </div>
-                <input type="text" name = "id" value = "<?=$task['id']?>" hidden>
+                <input type="hidden" name="id" value="<?= htmlspecialchars($task['id']) ?>">
                 <button class="edit-btn">Update</button>
             </form>
         </section>
     </div>
     <script type="text/javascript">
         var active = document.querySelector("#navList li:nth-child(4)");
-        active.classList.add("active");
+        if (active) {
+            active.classList.add("active");
+        }
     </script>
 </body>
 </html>
 
-<?php }else{
-        $em = "First login";
-        header("Location: login.php?error=$em");
-        exit();
+<?php 
+} else {
+    $em = "First login";
+    header("Location: login.php?error=" . urlencode($em));
+    exit();
 }
 ?>
-
