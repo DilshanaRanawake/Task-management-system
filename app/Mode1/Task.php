@@ -35,3 +35,10 @@ function get_task_by_id($conn, $id){
     }else $task = 0;
     return $task;
 }
+
+function update_task($conn, $data){
+    $sql = "UPDATE tasks SET title=?, description=?, assigned_to=? WHERE id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($data);
+
+}

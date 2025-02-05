@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
 
 
-    if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['assigned_to']) && $_SESSION['role'] == 'admin') {
+    if (isset($_POST['id']) && isset($_POST['title']) && isset($_POST['description']) && isset($_POST['assigned_to']) && $_SESSION['role'] == 'admin') {
         include "../DB_connection.php";
 
         function validate_input($data){
@@ -15,36 +15,37 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
         $title = validate_input($_POST['title']);
         $description = validate_input($_POST['description']);
         $assigned_to = validate_input($_POST['assigned_to']);
+        $id = validate_input($_POST['id']);
 
         if (empty($title)) {
             $em = "Title is required";
-            header("Location: ../create_task.php?error=$em");
+            header("Location: ../edit_task.php?error=$em");
             exit();
         }else if (empty($description)) {
             $em = "Description is required";
-            header("Location: ../create_task.php?error=$em");
+            header("Location: ../edit-task.php?error=$em");
             exit();
         }else if ($assigned_to==0) {
             $em = "Select User";
-            header("Location: ../create_task.php?error=$em");
+            header("Location: ../edit-task.php?error=$em");
             exit();
         }else{
             include "Mode1/Task.php";
             
-            $data = array($title, $description, $assigned_to);
-            insert_task($conn, $data);
+            $data = array($title, $description, $assigned_to, $id);
+            update_task($conn, $data);
 
-            $em = "Task created successfully";
-            header("Location: ../create_task.php?success=$em");
+            $em = "Task updated successfully";
+            header("Location: ../edit-task.php?success=$em");
             exit();
         }
     }else{
         $em = "Unknown error occurred";
-        header("Location: ../create_task.php?error=$em");
+        header("Location: ../edit-task.php?error=$em");
         exit();
     }
     }else{
         $em = "First login";
-        header("Location: ../create_task.php?error=$em");
+        header("Location: ../login.php?error=$em");
         exit();
     }
