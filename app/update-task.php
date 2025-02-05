@@ -19,15 +19,15 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
 
         if (empty($title)) {
             $em = "Title is required";
-            header("Location: ../edit_task.php?error=$em");
+            header("Location: ../edit_task.php?error=$em&id=$id");
             exit();
         }else if (empty($description)) {
             $em = "Description is required";
-            header("Location: ../edit-task.php?error=$em");
+            header("Location: ../edit-task.php?error=$em&id=$id");
             exit();
         }else if ($assigned_to==0) {
             $em = "Select User";
-            header("Location: ../edit-task.php?error=$em");
+            header("Location: ../edit-task.php?error=$em&id=$id");
             exit();
         }else{
             include "Mode1/Task.php";
@@ -36,7 +36,7 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
             update_task($conn, $data);
 
             $em = "Task updated successfully";
-            header("Location: ../edit-task.php?success=$em");
+            header("Location: ../edit-task.php?success=$em&id=$id");
             exit();
         }
     }else{

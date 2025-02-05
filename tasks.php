@@ -3,7 +3,9 @@ session_start();
 if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
     include "DB_connection.php";
     include "app/Mode1/Task.php";
+    include "app/Mode1/User.php";
     $tasks = get_all_tasks($conn);
+    $users = get_all_users($conn);
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +37,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
                         <th>#</th>
                         <th>Title</th>
                         <th>Description</th>
-                        <th>Role</th>
+                        <th>Assigned to</th>
                         <th>Action</th>
                     </tr>
                     <?php $i = 0; foreach ($tasks as $task) { ?>
@@ -43,7 +45,13 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
                             <td><?= ++$i ?></td>
                             <td><?= htmlspecialchars($task['title']) ?></td>
                             <td><?= htmlspecialchars($task['description']) ?></td>
-                            <td><?= htmlspecialchars($task['assigned_to']) ?></td>
+                            <td>
+                                <?php 
+                                foreach ($users as $user){
+                                    if($user['id'] == $task['assigned_to']){
+                                        echo $user['full_name'];
+                                }}?>
+                            </td>
                             <td>
                                 <a href="edit-task.php?id=<?= $task['id'] ?>" class="edit-btn">Edit</a>
                                 <a href="delete-task.php?id=<?= $task['id'] ?>" class="delete-btn">Delete</a>
