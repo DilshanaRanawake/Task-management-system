@@ -9,7 +9,7 @@
         if($_SESSION['role']== "employee"){
         ?>
         <!-- Employee Navigation Bar -->
-    <ul>
+    <ul  id="navList">
         <li>
             <a href="#">
                 <i class="fa fa-tachometer" aria-hidden="true"></i>
@@ -17,19 +17,19 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="my_task.php">
                 <i class="fa fa-tasks" aria-hidden="true"></i>
                 <span>My Task</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="profile.php">
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <span>Profile</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="notifications.php">
                 <i class="fa fa-bell" aria-hidden="true"></i>
                 <span>Notifications</span>
             </a>

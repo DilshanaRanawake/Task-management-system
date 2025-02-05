@@ -1,11 +1,10 @@
 <?php
 session_start();
-if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="admin") {
+if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
     include "DB_connection.php";
     include "app/Mode1/Task.php";
     include "app/Mode1/User.php";
-    $tasks = get_all_tasks($conn);
-    $users = get_all_users($conn);
+    $tasks = get_all_tasks_by_id($conn, $_SESSION['id']);
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +12,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="ad
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Tasks</title>
+    <title>My Tasks</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -23,7 +22,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="ad
     <div class="body">
         <?php include "inc/nav.php"; ?>
         <section class="section-1">
-            <h4 class="title">All Tasks <a href="create_Task.php">Create Task</a></h4>
+            <h4 class="title">My Tasks</h4>
 
             <?php if (isset($_GET['success'])) { ?>
                 <div class="success" role="alert">
@@ -37,7 +36,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="ad
                         <th>#</th>
                         <th>Title</th>
                         <th>Description</th>
-                        <th>Assigned to</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                     <?php $i = 0; foreach ($tasks as $task) { ?>
@@ -45,16 +44,9 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="ad
                             <td><?= ++$i ?></td>
                             <td><?= htmlspecialchars($task['title']) ?></td>
                             <td><?= htmlspecialchars($task['description']) ?></td>
-                            <td>
-                                <?php 
-                                foreach ($users as $user){
-                                    if($user['id'] == $task['assigned_to']){
-                                        echo $user['full_name'];
-                                }}?>
-                            </td>
+                            <td><?= htmlspecialchars($task['status']) ?></td>
                             <td>
                                 <a href="edit-task.php?id=<?= $task['id'] ?>" class="edit-btn">Edit</a>
-                                <a href="delete-task.php?id=<?= $task['id'] ?>" class="delete-btn">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -66,7 +58,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="ad
     </div>
 
     <script type="text/javascript">
-        var active = document.querySelector("#navList li:nth-child(4)");
+        var active = document.querySelector("#navList li:nth-child(2)");
         if (active) {
             active.classList.add("active");
         }
