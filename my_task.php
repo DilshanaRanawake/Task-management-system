@@ -46,13 +46,13 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
                             <td><?= htmlspecialchars($task['description']) ?></td>
                             <td><?= htmlspecialchars($task['status']) ?></td>
                             <td>
-                                <a href="edit-task.php?id=<?= $task['id'] ?>" class="edit-btn">Edit</a>
+                                <a href="edit_task_employee.php?id=<?= $task['id'] ?>" class="edit-btn">Edit</a>
                             </td>
                         </tr>
                     <?php } ?>
                 </table>
             <?php } else { ?>
-                <h3>No tasks found</h3>
+                <h3>Empty</h3>
             <?php } ?>
         </section>
     </div>

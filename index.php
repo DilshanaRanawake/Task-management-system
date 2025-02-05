@@ -22,6 +22,10 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
             
         </section>
     </div>
+    <script type="text/javascript">
+        var active = document.querySelector("#navList li:nth-child(1)");
+        active.classList.add("active");
+    </script>
 </body>
 </html>
 
@@ -31,4 +35,3 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
         exit();
 }
 ?>
-

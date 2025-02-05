@@ -3,7 +3,6 @@ function insert_task($conn, $data){
     $sql = "INSERT INTO tasks (title, description, assigned_to) VALUES(?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);
-
 }
 
 function get_all_tasks($conn){
@@ -21,7 +20,6 @@ function delete_task($conn, $data){
     $sql = "DELETE FROM tasks WHERE id=?";
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);
-
 }
 
 function get_task_by_id($conn, $id){
@@ -39,7 +37,12 @@ function update_task($conn, $data){
     $sql = "UPDATE tasks SET title=?, description=?, assigned_to=? WHERE id=?";
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);
+}
 
+function update_task_status($conn, $data){
+    $sql = "UPDATE tasks SET status=? WHERE id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($data);
 }
 
 function get_all_tasks_by_id($conn, $id){
