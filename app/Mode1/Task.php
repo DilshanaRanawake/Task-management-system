@@ -6,7 +6,7 @@ function insert_task($conn, $data){
 }
 
 function get_all_tasks($conn){
-    $sql = "SELECT * FROM tasks";
+    $sql = "SELECT * FROM tasks ORDER BY id DESC";
     $stmt = $conn->prepare($sql);
     $stmt->execute([]);
 

@@ -38,6 +38,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="ad
                         <th>Title</th>
                         <th>Description</th>
                         <th>Assigned to</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                     <?php $i = 0; foreach ($tasks as $task) { ?>
@@ -52,6 +53,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="ad
                                         echo $user['full_name'];
                                 }}?>
                             </td>
+                            <td><?= htmlspecialchars($task['status']) ?></td>
                             <td>
                                 <a href="edit-task.php?id=<?= $task['id'] ?>" class="edit-btn">Edit</a>
                                 <a href="delete-task.php?id=<?= $task['id'] ?>" class="delete-btn">Delete</a>
