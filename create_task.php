@@ -45,6 +45,10 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="ad
                     <textarea type="text" name="description" class="input-1" placeholder="Description"></textarea><br>
                 </div>
                 <div class = "input-holder">
+                    <label for="">Due Date</label>
+                    <input type="date" name="due_date" class="input-1" placeholder="Due Date"><br>
+                </div>
+                <div class = "input-holder">
                     <label >Assigned to</label>
                     <select name="assigned_to" class="input-1">
                         <option value = "0">Select employee</option>

@@ -37,6 +37,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
                         <th>Title</th>
                         <th>Description</th>
                         <th>Status</th>
+                        <th>Due Date</th>
                         <th>Action</th>
                     </tr>
                     <?php $i = 0; foreach ($tasks as $task) { ?>
@@ -45,6 +46,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
                             <td><?= htmlspecialchars($task['title']) ?></td>
                             <td><?= htmlspecialchars($task['description']) ?></td>
                             <td><?= htmlspecialchars($task['status']) ?></td>
+                            <td><?= htmlspecialchars($task['due_date']) ?></td>
                             <td>
                                 <a href="edit_task_employee.php?id=<?= $task['id'] ?>" class="edit-btn">Edit</a>
                             </td>

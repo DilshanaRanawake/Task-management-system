@@ -1,6 +1,6 @@
 <?php
 function insert_task($conn, $data){
-    $sql = "INSERT INTO tasks (title, description, assigned_to) VALUES(?, ?, ?)";
+    $sql = "INSERT INTO tasks (title, description, assigned_to, due_date) VALUES(?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);
 }
@@ -34,7 +34,7 @@ function get_task_by_id($conn, $id){
 }
 
 function update_task($conn, $data){
-    $sql = "UPDATE tasks SET title=?, description=?, assigned_to=? WHERE id=?";
+    $sql = "UPDATE tasks SET title=?, description=?, assigned_to=?, due_date=? WHERE id=?";
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);
 }
