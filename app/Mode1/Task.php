@@ -16,6 +16,25 @@ function get_all_tasks($conn){
     return $tasks;
 }
 
+function get_all_tasks_due_today($conn){
+    $sql = "SELECT * FROM tasks WHERE due_date = CURDATE() ORDER BY id DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([]);
+
+    if($stmt->rowCount()>0){
+        $tasks = $stmt->fetchAll();
+    }else $tasks = 0;
+    return $tasks;
+}
+
+function count_tasks_due_today($conn){
+    $sql = "SELECT id FROM tasks WHERE due_date = CURDATE()";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([]);
+
+    return $stmt->rowCount();
+}
+
 function count_tasks($conn){
     $sql = "SELECT id FROM tasks";
     $stmt = $conn->prepare($sql);
