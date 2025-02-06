@@ -11,7 +11,7 @@
         <!-- Employee Navigation Bar -->
     <ul  id="navList">
         <li>
-            <a href="#">
+            <a href="index.php">
                 <i class="fa fa-tachometer" aria-hidden="true"></i>
                 <span>Dashboard</span>
             </a>
@@ -45,7 +45,7 @@
         <!-- Admin Navigation Bar -->
         <ul id="navList">
         <li>
-            <a href="#">
+            <a href="index.php">
                 <i class="fa fa-tachometer" aria-hidden="true"></i>
                 <span>Dashboard</span>
             </a>

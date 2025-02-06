@@ -190,8 +190,6 @@
     width: 90%;
 }
 
-
-
 .section-1 .title {
     margin-bottom: 10px;
 }
@@ -345,4 +343,32 @@
     padding: 10px;
     box-shadow: 0 0 10px rgba(222, 177, 177, 0.8);
     margin-top: 10px;
+}
+
+.dashboard{
+    display: flex;
+    max-width: 650px;
+    width: 95%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.dashboard-item{
+    text-align: center;
+    background: #262931;
+    width: 200px;
+    padding: 30px 5px;
+    margin-bottom: 40px;
+}
+
+.dashboard-item i{
+    display: block;
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.dashboard-item span{
+    display: block;
+    color: #fff;
 }

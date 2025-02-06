@@ -81,6 +81,14 @@ function count_tasks($conn){
     return $stmt->rowCount();
 }
 
+function count_users($conn){
+    $sql = "SELECT id FROM users WHERE role='employee'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([]);
+
+    return $stmt->rowCount();
+}
+
 function delete_task($conn, $data){
     $sql = "DELETE FROM tasks WHERE id=?";
     $stmt = $conn->prepare($sql);
