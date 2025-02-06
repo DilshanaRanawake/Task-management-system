@@ -15,21 +15,18 @@ function insert_user($conn, $data){
     $sql = "INSERT INTO users (full_name, username, password, role) VALUES(?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);
-
 }
 
 function update_user($conn, $data){
     $sql = "UPDATE users SET full_name=?, username=?, password=?, role=? WHERE id=? AND role=?";
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);
-
 }
 
 function delete_user($conn, $data){
     $sql = "DELETE FROM users WHERE id=? AND role=?";
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);
-
 }
 
 function get_user_by_id($conn, $id){
@@ -41,4 +38,10 @@ function get_user_by_id($conn, $id){
         $user = $stmt->fetch();
     }else $user = 0;
     return $user;
+}
+
+function update_profile($conn, $data){
+    $sql = "UPDATE users SET full_name=?, password=? WHERE id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($data);
 }

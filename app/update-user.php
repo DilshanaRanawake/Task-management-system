@@ -46,8 +46,8 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
         header("Location: ../edit-user.php?error=$em");
         exit();
     }
-    }else{
-        $em = "First login";
-        header("Location: ../edit-user.php?error=$em&id=$id");
-        exit();
-    }
+}else{
+    $em = "First login";
+    header("Location: ../edit-user.php?error=$em&id=$id");
+    exit();
+}
