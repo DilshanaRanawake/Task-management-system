@@ -24,8 +24,14 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="ad
     <div class="body">
         <?php include "inc/nav.php"; ?>
         <section class="section-1">
-            <h4 class="title">All Tasks  (<?=$num_tasks?>) <a href="create_Task.php">Create Task</a></h4>
-
+            <h4 class="title-2">
+                <a href="create_Task.php" class="btn">Create Task</a>
+                <a href="tasks.php?due_date=Due Today">Due Today</a>
+                <a href="">Due This Week</a>
+                <a href="">Overdue</a>
+                <a href="">No Deadline</a>
+            </h4>
+            <h4 class="title-2">All Tasks  (<?=$num_tasks?>) 
             <?php if (isset($_GET['success'])) { ?>
                 <div class="success" role="alert">
                     <?php echo stripslashes($_GET['success']); ?>
