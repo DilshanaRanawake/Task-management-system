@@ -347,7 +347,7 @@
 
 .dashboard{
     display: flex;
-    max-width: 650px;
+    max-width: 850px;
     width: 95%;
     justify-content: space-between;
     flex-wrap: wrap;

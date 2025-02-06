@@ -10,6 +10,9 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
     $nodeadline_tasks = count_tasks_no_deadline($conn);
     $all_tasks = count_tasks($conn);
     $num_users = count_users($conn);
+    $pending = count_pending_tasks($conn);
+    $in_progress = count_tasks_in_progress($conn);
+    $completed = count_tasks_completed($conn);
 ?>
 
 <!DOCTYPE html>
@@ -52,6 +55,18 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
                     <div class="dashboard-item">
                         <i class="fa fa-bell"></i>
                         <span><?=$overdue_tasks?> Notifications</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="fa fa-square-o"></i>
+                        <span><?=$pending?> Pending</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="fa fa-spinner"></i>
+                        <span><?=$in_progress?> In progress</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="fa fa-check-square-o"></i>
+                        <span><?=$completed?> Completed</span>
                     </div>
                 </div>
             <?php }?>

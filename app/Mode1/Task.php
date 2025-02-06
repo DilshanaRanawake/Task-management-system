@@ -128,3 +128,27 @@ function get_all_tasks_by_id($conn, $id){
     }else $tasks = 0;
     return $tasks;
 }
+
+function count_pending_tasks($conn){
+    $sql = "SELECT id FROM tasks WHERE status = 'pending'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([]);
+
+    return $stmt->rowCount();
+}
+
+function count_tasks_in_progress($conn){
+    $sql = "SELECT id FROM tasks WHERE status = 'in_progress'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([]);
+
+    return $stmt->rowCount();
+}
+
+function count_tasks_completed($conn){
+    $sql = "SELECT id FROM tasks WHERE status = 'completed'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([]);
+
+    return $stmt->rowCount();
+}
