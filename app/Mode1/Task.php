@@ -16,6 +16,14 @@ function get_all_tasks($conn){
     return $tasks;
 }
 
+function count_tasks($conn){
+    $sql = "SELECT id FROM tasks";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([]);
+
+    return $stmt->rowCount();
+}
+
 function delete_task($conn, $data){
     $sql = "DELETE FROM tasks WHERE id=?";
     $stmt = $conn->prepare($sql);

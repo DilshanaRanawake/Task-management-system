@@ -5,6 +5,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="ad
     include "app/Mode1/Task.php";
     include "app/Mode1/User.php";
     $tasks = get_all_tasks($conn);
+    $num_tasks = count_tasks($conn);
     $users = get_all_users($conn);
 ?>
 
@@ -23,7 +24,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="ad
     <div class="body">
         <?php include "inc/nav.php"; ?>
         <section class="section-1">
-            <h4 class="title">All Tasks <a href="create_Task.php">Create Task</a></h4>
+            <h4 class="title">All Tasks  (<?=$num_tasks?>) <a href="create_Task.php">Create Task</a></h4>
 
             <?php if (isset($_GET['success'])) { ?>
                 <div class="success" role="alert">
