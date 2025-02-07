@@ -6,7 +6,7 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     role ENUM('admin', 'employee') NOT NULL,
     created_at TIMESTAMP default CURRENT_TIMESTAMP
-)
+);
 
 CREATE TABLE tasks (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -16,4 +16,13 @@ CREATE TABLE tasks (
     status ENUM('pending', 'in_progress', 'completed') DEFAULT 'pending',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (assigned_to) REFERENCES users(id)
-)
+);
+
+CREATE TABLE notifications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    meassage TEXT NOT NULL,
+    recipient INT NOT NULL,
+    type VARCHAR(50) NOT NULL,
+    date DATE NOT NULL,
+    is_read BOOLEAN DEFAULT FALSE
+);
