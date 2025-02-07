@@ -30,7 +30,52 @@
     color: #fff;
 }
 
-.header i:hover {
+.header .notification{
+    position: relative;
+    cursor: pointer;
+}
+
+.header .notification span{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: #c80000;
+    padding: 1px;
+    border-radius: 50%;
+}
+
+.notification-bar{
+    display:none;
+    width: 90%;
+    max-width: 300px;
+    position: absolute;
+    right: 0;
+    background: #ffe5fa;
+    padding: 5px;
+    border: 1px solid #23242b;
+    box-shadow: 0 8px 16px 0 rgba(87, 12, 63, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    z-index: 1000;
+}
+
+.notification-bar ul li{
+    list-style: none;
+    margin-top: 10px;
+}
+
+.notification-bar ul li a{
+    text-decoration: none;
+    color: #000;
+}
+
+.notification-bar ul li:nth-child(even){
+    background-color: #fff;
+}
+
+.open-notification{
+    display: block;
+}
+
+.header .notification:hover  i{
     color: #760751;
 }
 

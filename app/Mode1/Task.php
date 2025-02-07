@@ -17,7 +17,7 @@ function get_all_tasks($conn){
 }
 
 function get_all_tasks_due_today($conn){
-    $sql = "SELECT * FROM tasks WHERE due_date = CURDATE() ORDER BY id DESC";
+    $sql = "SELECT * FROM tasks WHERE due_date = CURDATE() AND status != 'completed' ORDER BY id DESC";
     $stmt = $conn->prepare($sql);
     $stmt->execute([]);
 
@@ -28,7 +28,7 @@ function get_all_tasks_due_today($conn){
 }
 
 function count_tasks_due_today($conn){
-    $sql = "SELECT id FROM tasks WHERE due_date = CURDATE()";
+    $sql = "SELECT id FROM tasks WHERE due_date = CURDATE() AND status != 'completed'";
     $stmt = $conn->prepare($sql);
     $stmt->execute([]);
 
@@ -36,7 +36,7 @@ function count_tasks_due_today($conn){
 }
 
 function get_all_tasks_overdue($conn){
-    $sql = "SELECT * FROM tasks WHERE due_date < CURDATE()  AND status != 'completed' AND due_date!='0000-00-00' AND due_date IS NOT NULL ORDER BY id DESC";
+    $sql = "SELECT * FROM tasks WHERE due_date < CURDATE() AND status != 'completed' AND due_date!='0000-00-00' AND due_date IS NOT NULL ORDER BY id DESC";
     $stmt = $conn->prepare($sql);
     $stmt->execute([]);
 

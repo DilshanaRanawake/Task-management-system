@@ -58,7 +58,7 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
                         <span><?=$nodeadline_tasks?> No Deadline</span>
                     </div>
                     <div class="dashboard-item">
-                        <i class="fa fa-user"></i>
+                        <i class="fa fa-exclamation-triangle"></i>
                         <span><?=$todaydue_tasks?> Due Today</span>
                     </div>
                     <div class="dashboard-item">
