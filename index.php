@@ -4,15 +4,24 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
     include "DB_connection.php";
     include "app/Mode1/Task.php";
     include "app/Mode1/User.php";
-
-    $todaydue_tasks = count_tasks_due_today($conn);
-    $overdue_tasks = count_tasks_overdue($conn);
-    $nodeadline_tasks = count_tasks_no_deadline($conn);
-    $all_tasks = count_tasks($conn);
-    $num_users = count_users($conn);
-    $pending = count_pending_tasks($conn);
-    $in_progress = count_tasks_in_progress($conn);
-    $completed = count_tasks_completed($conn);
+    if ($_SESSION['role'] == 'admin') {
+        $todaydue_tasks = count_tasks_due_today($conn);
+        $overdue_tasks = count_tasks_overdue($conn);
+        $nodeadline_tasks = count_tasks_no_deadline($conn);
+        $all_tasks = count_tasks($conn);
+        $num_users = count_users($conn);
+        $pending = count_pending_tasks($conn);
+        $in_progress = count_tasks_in_progress($conn);
+        $completed = count_tasks_completed($conn);
+    }else{
+        $num_my_tasks = count_my_tasks($conn, $_SESSION['id']);
+        $overdue_tasks = count_my_tasks_overdue($conn, $_SESSION['id']);
+        $nodeadline_tasks = count_my_tasks_no_deadline($conn, $_SESSION['id']);
+        $pending = count_my_pending_tasks($conn, $_SESSION['id']);
+        $in_progress = count_my_tasks_in_progress($conn, $_SESSION['id']);
+        $completed = count_my_tasks_completed($conn, $_SESSION['id']);
+    } 
+    
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +78,34 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
                         <span><?=$completed?> Completed</span>
                     </div>
                 </div>
-            <?php }?>
+            <?php }else{?>
+                <div class="dashboard">
+                    <div class="dashboard-item">
+                        <i class="fa fa-tasks"></i>
+                        <span><?=$num_my_tasks?> My Tasks</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="fa fa-window-close-o"></i>
+                        <span><?=$overdue_tasks?> Overdue</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="fa fa-clock-o"></i>
+                        <span><?=$nodeadline_tasks?> No Deadline</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="fa fa-square-o"></i>
+                        <span><?=$pending?> Pending</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="fa fa-spinner"></i>
+                        <span><?=$in_progress?> In progress</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="fa fa-check-square-o"></i>
+                        <span><?=$completed?> Completed</span>
+                    </div>
+                </div>
+            <?php }?>   
         </section>
     </div>
     <script type="text/javascript">
