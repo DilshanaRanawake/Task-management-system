@@ -31,7 +31,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
             <?php } ?>
 
             <?php if (is_array($notifications) && count($notifications) > 0) { ?>
-                <table class="main-table">
+                <table class="main-table  table-style-notification">
                     <colgroup>
                         <col>
                         <col>

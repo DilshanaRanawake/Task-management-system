@@ -56,7 +56,16 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="ad
             <?php } ?>
 
             <?php if (is_array($tasks) && count($tasks) > 0) { ?>
-                <table class="main-table">
+                <table class="main-table table-style-task">
+                    <colgroup>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                    </colgroup>
                     <tr>
                         <th>#</th>
                         <th>Title</th>

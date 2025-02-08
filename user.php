@@ -30,7 +30,14 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="ad
             <?php } ?>
 
             <?php if (is_array($users) && count($users) > 0) { ?>
-                <table class="main-table">
+                <table class="main-table table-style-user">
+                    <colgroup>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                    </colgroup>
                     <tr>
                         <th>#</th>
                         <th>Full Name</th>

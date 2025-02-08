@@ -306,13 +306,34 @@
     word-break: break-word; /* Ensures long words break */
     max-width: 250px; /* Set a max width to prevent stretching */
     overflow: hidden;
+    vertical-align: middle;
 }
 
-.main-table col:nth-child(1) { width: 5%; } /* First column */
-.main-table col:nth-child(2) { width: 55%; } /* Second column */
-.main-table col:nth-child(3) { width: 25%; } /* Third column */
-.main-table col:nth-child(4) { width: 15%; } /* Fourth column */
+.table-style-notification col:nth-child(1) { width: 5%; } /* First column */
+.table-style-notification col:nth-child(2) { width: 55%; } /* Second column */
+.table-style-notification col:nth-child(3) { width: 25%; } /* Third column */
+.table-style-notification col:nth-child(4) { width: 15%; } /* Fourth column */
 
+.table-style-mytask col:nth-child(1) { width: 5%; } /* First column */
+.table-style-mytask col:nth-child(2) { width: 15%; } /* Second column */
+.table-style-mytask col:nth-child(3) { width: 35%; } /* Third column */
+.table-style-mytask col:nth-child(4) { width: 20%; } /* Fourth column */
+.table-style-mytask col:nth-child(5) { width: 20%; } /* Fifth column */
+.table-style-mytask col:nth-child(6) { width: 5%; } /* Sixth column */
+
+.table-style-user col:nth-child(1) { width: 10%; } /* First column */
+.table-style-user col:nth-child(2) { width: 20%; } /* Second column */
+.table-style-user col:nth-child(3) { width: 20%; } /* Third column */
+.table-style-user col:nth-child(4) { width: 20%; } /* Fourth column */
+.table-style-user col:nth-child(5) { width: 20%; } /* Fifth column */
+
+.table-style-task col:nth-child(1) { width: 5%; } /* First column */
+.table-style-task col:nth-child(2) { width: 10%; } /* Second column */
+.table-style-task col:nth-child(3) { width: 30%; } /* Third column */
+.table-style-task col:nth-child(4) { width: 10%; } /* Fourth column */
+.table-style-task col:nth-child(5) { width: 10%; } /* Fifth column */
+.table-style-task col:nth-child(6) { width: 15%; } /* Sixth column */
+.table-style-task col:nth-child(7) { width: 20%; } /* Seventh column */
 
 .delete-btn{
     text-decoration: none;
@@ -407,10 +428,11 @@
 
 .dashboard{
     display: flex;
-    max-width: 850px;
+    max-width: 100%;
     width: 95%;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     flex-wrap: wrap;
+    gap: 0 40px;
 }
 
 .dashboard-item{
