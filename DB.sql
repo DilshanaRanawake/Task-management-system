@@ -20,7 +20,7 @@ CREATE TABLE tasks (
 
 CREATE TABLE notifications (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    meassage TEXT NOT NULL,
+    message TEXT NOT NULL,
     recipient INT NOT NULL,
     type VARCHAR(50) NOT NULL,
     date DATE NOT NULL,

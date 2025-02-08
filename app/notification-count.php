@@ -6,7 +6,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
 
     $count_notification = count_notification($conn, $_SESSION['id']);
     if ($count_notification) {
-        echo "&nbsp;". $count_notification. "&nbsp;";
+        echo "&nbsp;".$count_notification."&nbsp;";
     }
 }else{
     echo "";

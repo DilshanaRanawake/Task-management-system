@@ -42,12 +42,13 @@
     background: #c80000;
     padding: 1px;
     border-radius: 50%;
+    z-index: 1000;
 }
 
 .notification-bar{
     display:none;
     width: 90%;
-    max-width: 300px;
+    max-width: 350px;
     position: absolute;
     right: 0;
     background: #ffe5fa;

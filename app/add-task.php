@@ -31,9 +31,13 @@ if (isset($_SESSION['role'])&& isset($_SESSION['id'])) {
             exit();
         }else{
             include "Mode1/Task.php";
+            include "Mode1/Notification.php";
             
             $data = array($title, $description, $assigned_to, $due_date);
             insert_task($conn, $data);
+            
+            $notification_data = array("'$title' has been assigned to you. Please review and start working on it.", $assigned_to, 'New Task Assigned');
+            insert_notification($conn, $notification_data);
 
             $em = "Task created successfully";
             header("Location: ../create_task.php?success=$em");

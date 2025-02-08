@@ -1,7 +1,7 @@
 <?php
 
 function get_all_my_notifications($conn, $id){
-    $sql = "SELECT * FROM notifications WHERE recipient =? ";
+    $sql = "SELECT * FROM notifications WHERE recipient =? LIMIT 5";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$id]);
 
@@ -17,4 +17,16 @@ function count_notification($conn, $id){
     $stmt->execute([$id]);
 
     return $stmt->rowCount();
+}
+
+function insert_notification($conn, $data){
+    $sql = "INSERT INTO notifications (message, recipient, type) VALUES(?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($data);
+}
+
+function notification_make_read($conn, $recipient_id, $notification_id){
+    $sql = "UPDATE notifications SET is_read=1 WHERE id=? AND recipient=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([ $notification_id, $recipient_id]);
 }

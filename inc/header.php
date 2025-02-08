@@ -6,11 +6,13 @@
     </h2>
     <span class="notification" id="notificationBtn">
         <i class="fa fa-bell" aria-hidden="true"></i>
-        <span id="notificationNum">&nbsp;7&nbsp;</span>
+        <span id="notificationNum"></span>
     </span>
 </header>
 <div class="notification-bar" id="notificationBar">
-    <ul id="notifications"></ul>
+    <ul id="notifications">
+
+    </ul>
 </div>
 <script type="text/javascript">
     var openNotification = false;
