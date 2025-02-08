@@ -294,10 +294,25 @@
     padding: 7px;
 }
 
-.main-table{
-    width: 90%;
+.main-table {
     margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures columns remain uniform */
 }
+
+.main-table td {
+    white-space: normal; /* Prevents text from sticking to one line */
+    word-break: break-word; /* Ensures long words break */
+    max-width: 250px; /* Set a max width to prevent stretching */
+    overflow: hidden;
+}
+
+.main-table col:nth-child(1) { width: 5%; } /* First column */
+.main-table col:nth-child(2) { width: 55%; } /* Second column */
+.main-table col:nth-child(3) { width: 25%; } /* Third column */
+.main-table col:nth-child(4) { width: 15%; } /* Fourth column */
+
 
 .delete-btn{
     text-decoration: none;

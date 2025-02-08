@@ -32,6 +32,12 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
 
             <?php if (is_array($notifications) && count($notifications) > 0) { ?>
                 <table class="main-table">
+                    <colgroup>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                    </colgroup>
                     <tr>
                         <th>#</th>
                         <th>Message</th>

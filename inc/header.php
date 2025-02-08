@@ -10,29 +10,7 @@
     </span>
 </header>
 <div class="notification-bar" id="notificationBar">
-    <ul>
-        <li>
-            <a href="">
-                <mark>New Task Assigned</mark>
-                Notification 1 example
-                &nbsp;&nbsp;<small>Feb 7, 2025</small>
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <mark>New Task Assigned</mark>
-                Notification 2 example
-                &nbsp;&nbsp;<small>Feb 1, 2025</small>
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <mark>New Task Assigned</mark>
-                Notification 3 example
-                &nbsp;&nbsp;<small>Jan 31, 2025</small>
-            </a>
-        </li>
-    </ul>
+    <ul id="notifications"></ul>
 </div>
 <script type="text/javascript">
     var openNotification = false;
@@ -56,6 +34,7 @@
     $(document).ready(function(){
 
         $("#notificationNum").load("app/notification-count.php");
+        $("#notifications").load("app/notification.php");
 
     });
 </script>
