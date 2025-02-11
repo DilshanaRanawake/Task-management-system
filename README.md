@@ -15,6 +15,7 @@ The **Task Management System** is a web application designed to help users organ
   - [User Role Management](#user-role-management)
   - [Task Management](#task-management)
   - [Notifications](#notifications)
+- [Screenshots](#screenshots)
 
 
 ## Features
@@ -88,3 +89,25 @@ View Tasks: Users can view their tasks in a table format.
 
 ### Notifications
 Task Updates: Employees receive notifications about important task changes done by admin.
+
+## Screenshots
+
+<p align="center">
+  <img src="https://github.com/DilshanaRanawake/Task-management-system/blob/main/images_taskmngmnt/1.png" alt="Example Image" width="500">
+  <img src="https://github.com/DilshanaRanawake/Task-management-system/blob/main/images_taskmngmnt/2.png" alt="Example Image" width="500">
+  <img src="https://github.com/DilshanaRanawake/Task-management-system/blob/main/images_taskmngmnt/3.png" alt="Example Image" width="500">
+  <img src="https://github.com/DilshanaRanawake/Task-management-system/blob/main/images_taskmngmnt/4.png" alt="Example Image" width="500">
+  <img src="https://github.com/DilshanaRanawake/Task-management-system/blob/main/images_taskmngmnt/5.png" alt="Example Image" width="500">
+  <img src="https://github.com/DilshanaRanawake/Task-management-system/blob/main/images_taskmngmnt/6.png" alt="Example Image" width="500">
+  <img src="https://github.com/DilshanaRanawake/Task-management-system/blob/main/images_taskmngmnt/7.png" alt="Example Image" width="500">
+  <img src="https://github.com/DilshanaRanawake/Task-management-system/blob/main/images_taskmngmnt/8.png" alt="Example Image" width="500">
+  <img src="https://github.com/DilshanaRanawake/Task-management-system/blob/main/images_taskmngmnt/9.png" alt="Example Image" width="500">
+  <img src="https://github.com/DilshanaRanawake/Task-management-system/blob/main/images_taskmngmnt/10.png" alt="Example Image" width="500">
+  <img src="https://github.com/DilshanaRanawake/Task-management-system/blob/main/images_taskmngmnt/11.png" alt="Example Image" width="500">
+  <img src="https://github.com/DilshanaRanawake/Task-management-system/blob/main/images_taskmngmnt/12.png" alt="Example Image" width="500">
+  <img src="https://github.com/DilshanaRanawake/Task-management-system/blob/main/images_taskmngmnt/13.png" alt="Example Image" width="500">
+  <img src="https://github.com/DilshanaRanawake/Task-management-system/blob/main/images_taskmngmnt/14.png" alt="Example Image" width="500">
+</p>
+
+
+
