@@ -42,7 +42,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role']=="ad
         <?php include "inc/nav.php"; ?>
         <section class="section-1">
             <h4 class="title-2">
-                <a href="create_Task.php" class="btn">Create Task</a>
+                <a href="create_task.php" class="btn">Create Task</a>
                 <a href="tasks.php?due_date=Due Today">Due Today</a>
                 <a href="tasks.php?due_date=Overdue">Overdue</a>
                 <a href="tasks.php?due_date=No Deadline">No Deadline</a>
